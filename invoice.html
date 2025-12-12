@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice - WebCraft Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media print {
+            .no-print { display: none; }
+            body { background: white; }
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-8">
+            <div>
+                <div class="flex items-center gap-2 mb-2">
+                    <svg class="text-purple-600" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    <h1 class="text-3xl font-bold text-gray-800">WebCraft Studio</h1>
+                </div>
+                <p class="text-gray-600">Professional Web Development</p>
+                <p class="text-gray-600">hello@webcraftstudio.com</p>
+            </div>
+            <div class="text-right">
+                <h2 class="text-4xl font-bold text-purple-600 mb-2">INVOICE</h2>
+                <p class="text-gray-600">Invoice #: <span id="invoiceNumber" class="font-semibold">001</span></p>
+                <p class="text-gray-600">Date: <span id="invoiceDate" class="font-semibold"></span></p>
+                <p class="text-gray-600">Due: <span id="dueDate" class="font-semibold"></span></p>
+            </div>
+        </div>
+
+        <hr class="border-gray-300 mb-8">
+
+        <!-- Bill To Section -->
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+                <h3 class="text-sm font-semibold text-gray-500 uppercase mb-2">Bill To</h3>
+                <p class="text-gray-800 font-semibold text-lg" id="clientName">Client Name</p>
+                <p class="text-gray-600" id="clientBusiness">Business Name</p>
+                <p class="text-gray-600" id="clientEmail">client@email.com</p>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-gray-500 uppercase mb-2">Payment Details</h3>
+                <p class="text-gray-800"><span class="font-semibold">Status:</span> <span id="paymentStatus" class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-semibold">Pending</span></p>
+                <p class="text-gray-800 mt-2"><span class="font-semibold">Payment Terms:</span> 50% upfront, 50% on completion</p>
+            </div>
+        </div>
+
+        <!-- Invoice Items Table -->
+        <div class="mb-8">
+            <table class="w-full">
+                <thead class="bg-purple-600 text-white">
+                    <tr>
+                        <th class="text-left py-3 px-4">Description</th>
+                        <th class="text-center py-3 px-4">Quantity</th>
+                        <th class="text-right py-3 px-4">Rate</th>
+                        <th class="text-right py-3 px-4">Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="invoiceItems">
+                    <tr class="border-b border-gray-200">
+                        <td class="py-4 px-4">
+                            <p class="font-semibold text-gray-800">Professional Website Package</p>
+                            <p class="text-sm text-gray-600">Custom 7-page website with SEO optimization, contact forms, and 3 months support</p>
+                        </td>
+                        <td class="text-center py-4 px-4">1</td>
+                        <td class="text-right py-4 px-4">$300.00</td>
+                        <td class="text-right py-4 px-4 font-semibold">$300.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Totals -->
+        <div class="flex justify-end mb-8">
+            <div class="w-64">
+                <div class="flex justify-between py-2 border-b border-gray-200">
+                    <span class="text-gray-600">Subtotal:</span>
+                    <span class="font-semibold" id="subtotal">$300.00</span>
+                </div>
+                <div class="flex justify-between py-2 border-b border-gray-200">
+                    <span class="text-gray-600">Tax (0%):</span>
+                    <span class="font-semibold">$0.00</span>
+                </div>
+                <div class="flex justify-between py-3 bg-purple-50 px-4 rounded mt-2">
+                    <span class="text-lg font-bold text-gray-800">Total Due:</span>
+                    <span class="text-2xl font-bold text-purple-600" id="total">$300.00</span>
+                </div>
+                <div class="mt-2 text-right text-sm text-gray-600">
+                    <p>This invoice: <span class="font-semibold" id="thisPayment">$150.00</span> (50% upfront)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Instructions -->
+        <div class="bg-gray-50 rounded-lg p-6 mb-8">
+            <h3 class="font-bold text-gray-800 mb-3">Payment Instructions</h3>
+            <p class="text-gray-600 mb-4">Please send payment via the following method:</p>
+            <div class="space-y-2 text-gray-700">
+                <p><strong>PayPal:</strong> hello@webcraftstudio.com</p>
+            </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="bg-blue-50 rounded-lg p-6 mb-8">
+            <h3 class="font-bold text-gray-800 mb-2">Project Timeline</h3>
+            <p class="text-gray-700">Work will begin within 2 business days of receiving the upfront payment. Estimated completion: <span id="completionDate" class="font-semibold">14 days from start</span>.</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-gray-600 text-sm border-t border-gray-300 pt-6">
+            <p class="mb-2">Thank you for your business!</p>
+            <p>Questions? Email hello@webcraftstudio.com</p>
+        </div>
+
+        <!-- Print/Edit Buttons -->
+        <div class="mt-8 flex gap-4 justify-center no-print">
+            <button onclick="window.print()" class="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition">
+                Print/Save as PDF
+            </button>
+            <button onclick="editInvoice()" class="bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-700 transition">
+                Edit Details
+            </button>
+        </div>
+
+        <!-- Edit Form (Hidden by default) -->
+        <div id="editForm" class="mt-8 bg-gray-50 rounded-lg p-6 no-print hidden">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Edit Invoice Details</h3>
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Invoice Number</label>
+                    <input type="text" id="editInvoiceNumber" class="w-full border border-gray-300 rounded px-3 py-2" value="001">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Invoice Date</label>
+                    <input type="date" id="editInvoiceDate" class="w-full border border-gray-300 rounded px-3 py-2">
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Client Name</label>
+                    <input type="text" id="editClientName" class="w-full border border-gray-300 rounded px-3 py-2" value="Client Name">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Business Name</label>
+                    <input type="text" id="editClientBusiness" class="w-full border border-gray-300 rounded px-3 py-2" value="Business Name">
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Client Email</label>
+                <input type="email" id="editClientEmail" class="w-full border border-gray-300 rounded px-3 py-2" value="client@email.com">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Package Type</label>
+                <select id="editPackage" class="w-full border border-gray-300 rounded px-3 py-2">
+                    <option value="basic">Basic - $150</option>
+                    <option value="professional" selected>Professional - $300</option>
+                    <option value="premium">Premium - $550</option>
+                    <option value="custom">Custom Amount</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Custom Amount (if selected)</label>
+                <input type="number" id="editCustomAmount" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="0">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Service Description</label>
+                <textarea id="editDescription" class="w-full border border-gray-300 rounded px-3 py-2" rows="3">Custom 7-page website with SEO optimization, contact forms, and 3 months support</textarea>
+            </div>
+            <button onclick="updateInvoice()" class="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition">
+                Update Invoice
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Set today's date
+        const today = new Date();
+        const dueDateCalc = new Date(today);
+        dueDateCalc.setDate(dueDateCalc.getDate() + 7);
+
+        document.getElementById('invoiceDate').textContent = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        document.getElementById('dueDate').textContent = dueDateCalc.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        document.getElementById('editInvoiceDate').value = today.toISOString().split('T')[0];
+
+        const packagePrices = {
+            'basic': { amount: 150, name: 'Basic Website Package', desc: 'Custom 3-page website with contact form and 1 month support', timeline: '7-11 days' },
+            'professional': { amount: 300, name: 'Professional Website Package', desc: 'Custom 7-page website with SEO optimization, contact forms, and 3 months support', timeline: '11-14 days' },
+            'premium': { amount: 550, name: 'Premium Website Package', desc: 'Unlimited pages, e-commerce integration, advanced features, and 6 months support', timeline: '14-21 days' }
+        };
+
+        function editInvoice() {
+            document.getElementById('editForm').classList.toggle('hidden');
+        }
+
+        function updateInvoice() {
+            // Update basic info
+            const invoiceNum = document.getElementById('editInvoiceNumber').value;
+            const clientName = document.getElementById('editClientName').value;
+            const clientBusiness = document.getElementById('editClientBusiness').value;
+            const clientEmail = document.getElementById('editClientEmail').value;
+            const packageType = document.getElementById('editPackage').value;
+            const customAmount = document.getElementById('editCustomAmount').value;
+            const description = document.getElementById('editDescription').value;
+
+            document.getElementById('invoiceNumber').textContent = invoiceNum;
+            document.getElementById('clientName').textContent = clientName;
+            document.getElementById('clientBusiness').textContent = clientBusiness;
+            document.getElementById('clientEmail').textContent = clientEmail;
+
+            // Calculate amount
+            let amount;
+            let itemName;
+            let itemDesc = description;
+            let timeline;
+
+            if (packageType === 'custom' && customAmount) {
+                amount = parseFloat(customAmount);
+                itemName = 'Custom Web Development Project';
+                timeline = 'As discussed';
+            } else if (packageType !== 'custom') {
+                amount = packagePrices[packageType].amount;
+                itemName = packagePrices[packageType].name;
+                itemDesc = packagePrices[packageType].desc;
+                timeline = packagePrices[packageType].timeline;
+            }
+
+            // Update table
+            const upfrontAmount = amount / 2;
+            document.getElementById('invoiceItems').innerHTML = `
+                <tr class="border-b border-gray-200">
+                    <td class="py-4 px-4">
+                        <p class="font-semibold text-gray-800">${itemName}</p>
+                        <p class="text-sm text-gray-600">${itemDesc}</p>
+                    </td>
+                    <td class="text-center py-4 px-4">1</td>
+                    <td class="text-right py-4 px-4">$${amount.toFixed(2)}</td>
+                    <td class="text-right py-4 px-4 font-semibold">$${amount.toFixed(2)}</td>
+                </tr>
+            `;
+
+            document.getElementById('subtotal').textContent = `$${amount.toFixed(2)}`;
+            document.getElementById('total').textContent = `$${amount.toFixed(2)}`;
+            document.getElementById('thisPayment').textContent = `$${upfrontAmount.toFixed(2)}`;
+            document.getElementById('completionDate').textContent = timeline;
+
+            // Hide form
+            document.getElementById('editForm').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

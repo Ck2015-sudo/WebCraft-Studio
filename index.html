@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCraft Studio - Professional Websites for Small Businesses</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='4' y='24' font-size='24' fill='purple'%3E%26lt;%3C/text%3E%3Ctext x='20' y='24' font-size='24' fill='purple'%3E%26gt;%3C/text%3E%3C/svg%3E">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="WebCraft Studio creates professional, custom websites for small businesses. Affordable pricing, fast delivery, and beautiful designs that convert visitors into customers.">
+    <meta name="keywords" content="web design, small business websites, custom websites, affordable web development, Brighton web designer">
+    <meta name="author" content="WebCraft Studio">
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="WebCraft Studio - Professional Websites for Small Businesses">
+    <meta property="og:description" content="Transform your business with a stunning, custom-built website. Fast, affordable, and designed to convert.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webcraftstudio.com">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "WebCraft Studio",
+      "description": "Professional web design and development for small businesses",
+      "priceRange": "$200-$750",
+      "areaServed": "Worldwide",
+      "serviceType": ["Web Design", "Web Development", "SEO Optimization"]
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e1b4b 0%, #581c87 50%, #1e1b4b 100%);
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            border-color: rgba(168, 85, 247, 0.6);
+            transform: translateY(-5px);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(147, 51, 234, 0.5);
+        }
+        
+        .pricing-popular {
+            background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(147, 51, 234, 0.5);
+        }
+        
+        .header-blur {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(168, 85, 247, 0.3);
+        }
+        
+        .success-message {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid #22c55e;
+            color: #86efac;
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        input, textarea, select {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(168, 85, 247, 0.5);
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #a78bfa;
+        }
+        
+        select option {
+            background: #1e293b;
+        }
+
+        .waitlist-item {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pulse-dot {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .5;
+            }
+        }
+
+        .schedule-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(168, 85, 247, 0.6);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <!-- Header -->
+    <header class="header-blur sticky top-0 z-50">
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <svg class="text-purple-400" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <span class="text-2xl font-bold text-white">WebCraft Studio</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="#services" class="text-gray-300 hover:text-purple-400 transition">Services</a>
+                <a href="#pricing" class="text-gray-300 hover:text-purple-400 transition">Pricing</a>
+                <a href="#contact" class="text-gray-300 hover:text-purple-400 transition">Contact</a>
+                <a href="#waitlist" class="text-gray-300 hover:text-purple-400 transition">Waitlist</a>
+                <a href="#schedule" class="text-gray-300 hover:text-purple-400 transition">Schedule & Availability</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-6xl mx-auto px-6 py-20 text-center">
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            Professional Websites for<br>
+            <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Small Businesses
+            </span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Transform your business with a stunning, custom-built website. Fast, affordable, and designed to convert visitors into customers.
+        </p>
+        <a href="#contact" class="inline-block btn-primary text-white px-8 py-4 rounded-lg font-semibold text-lg">
+            Get Started Today
+        </a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="max-w-6xl mx-auto px-6 py-16">
+        <h2 class="text-4xl font-bold text-white text-center mb-12">What I Offer</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="card rounded-xl p-8">
+                <svg class="text-purple-400 mb-4" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <h3 class="text-2xl font-bold text-white mb-3">Custom Web Development</h3>
+                <p class="text-gray-300">
+                    Hand-coded websites built with modern technologies. Fast, secure, and tailored to your business needs.
+                </p>
+            </div>
+            
+            <div class="card rounded-xl p-8">
+                <svg class="text-purple-400 mb-4" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                </svg>
+                <h3 class="text-2xl font-bold text-white mb-3">Beautiful Design</h3>
+                <p class="text-gray-300">
+                    Eye-catching designs that represent your brand and engage your customers from the first click.
+                </p>
+            </div>
+            
+            <div class="card rounded-xl p-8">
+                <svg class="text-purple-400 mb-4" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <h3 class="text-2xl font-bold text-white mb-3">Fast Delivery</h3>
+                <p class="text-gray-300">
+                    Get your website up and running quickly. Most projects completed within 1–5 weeks depending on package.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+<section id="pricing" class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold text-white text-center mb-12">Simple Pricing</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+        <!-- Basic -->
+        <div class="card rounded-xl p-8">
+            <h3 class="text-2xl font-bold text-white mb-2">Basic</h3>
+            <div class="text-4xl font-bold text-purple-400 mb-4">$200</div>
+            <div class="text-sm text-gray-400 mb-4">⏱️ 1–1.5 weeks delivery</div>
+            <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-2 text-gray-300">
+                    <svg class="text-green-400 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Up to 4 pages</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-300">
+                    <svg class="text-green-400 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Mobile responsive</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-300">
+                    <svg class="text-green-400 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Contact form</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-300">
+                    <svg class="text-green-400 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>1 month support</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Professional -->
+        <div class="pricing-popular rounded-xl p-8 border-2 border-purple-400">
+            <div class="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-bold inline-block mb-4">POPULAR</div>
+            <h3 class="text-2xl font-bold text-white mb-2">Professional</h3>
+            <div class="text-4xl font-bold text-white mb-4">$550</div>
+            <div class="text-sm text-gray-200 mb-4">⏱️ 2–3 weeks delivery</div>
+            <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-2 text-white">
+                    <svg class="text-yellow-300 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Up to 7 pages</span>
+                </li>
+                <li class="flex items-start gap-2 text-white">
+                    <svg class="text-yellow-300 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Custom design</span>
+                </li>
+                <li class="flex items-start gap-2 text-white">
+                    <svg class="text-yellow-300 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>SEO optimization</span>
+                </li>
+                <li class="flex items-start gap-2 text-white">
+                    <svg class="text-yellow-300 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Contact & booking forms</span>
+                </li>
+                <li class="flex items-start gap-2 text-white">
+                    <svg class="text-yellow-300 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>3 months support</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Premium -->
+        <div class="card rounded-xl p-8">
+            <h3 class="text-2xl font-bold text-white mb-2">Premium</h3>
+            <div class="text-4xl font-bold text-purple-400 mb-4">$750</div>
+            <div class="text-sm text-gray-400 mb-4">⏱️ 4–5 weeks delivery</div>
+            <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-2 text-gray-300">
+                    <svg class="text-green-400 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Up to 12 pages</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-300">
+                    <svg class="text-green-400 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>E-commerce integration</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-300">
+                    <svg class="text-green-400 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Advanced features</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-300">
+                    <svg class="text-green-400 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Database integration</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-300">
+                    <svg class="text-green-400 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>6 months support</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="max-w-4xl mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold text-white text-center mb-4">Ready to Start?</h2>
+    <p class="text-gray-300 text-center mb-12">Fill out the form below and I'll get back to you within 24 hours</p>
+    
+    <div class="card rounded-xl p-8">
+        <div id="successMessage" class="success-message px-4 py-3 rounded-lg mb-6">
+            Thanks! I'll contact you within 24 hours. Your project has been added to the waitlist below.
+        </div>
+        
+        <form id="contactForm" action="https://formspree.io/f/mnnwpbwp" method="POST" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-gray-300 mb-2 font-semibold">Your Name *</label>
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        required
+                        class="w-full rounded-lg px-4 py-3 text-white placeholder-gray-400"
+                        placeholder="John Doe"
+                    />
+                </div>
+                
+                <div>
+                    <label class="block text-gray-300 mb-2 font-semibold">Email *</label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        required
+                        class="w-full rounded-lg px-4 py-3 text-white placeholder-gray-400"
+                        placeholder="john@example.com"
+                    />
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-gray-300 mb-2 font-semibold">Business Name</label>
+                <input
+                    type="text"
+                    name="businessName"
+                    id="businessName"
+                    class="w-full rounded-lg px-4 py-3 text-white placeholder-gray-400"
+                    placeholder="Your Business"
+                />
+            </div>
+
+            <div>
+                <label class="block text-gray-300 mb-2 font-semibold">Service Package *</label>
+                <select
+                    name="service"
+                    id="service"
+                    required
+                    class="w-full rounded-lg px-4 py-3 text-white"
+                >
+                    <option value="basic">Basic - $200 (1–1.5 weeks)</option>
+                    <option value="professional">Professional - $550 (2–3 weeks)</option>
+                    <option value="premium">Premium - $750 (4–5 weeks)</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-gray-300 mb-2 font-semibold">Project Details</label>
+                <textarea
+                    name="message"
+                    id="message"
+                    rows="4"
+                    class="w-full rounded-lg px-4 py-3 text-white placeholder-gray-400"
+                    placeholder="Tell me about your business and what you need..."
+                ></textarea>
+            </div>
+
+            <button
+                type="submit"
+                class="w-full btn-primary text-white py-4 rounded-lg font-bold text-lg"
+            >
+                Send Request
+            </button>
+            <p class="text-gray-400 text-center mt-2 text-sm">
+                Your package choice reflects the dedicated time and effort I invest in every project.
+            </p>
+        </form>
+    </div>
+</section>
+
+<!-- Waitlist Section -->
+<section id="waitlist" class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold text-white text-center mb-4">Project Waitlist</h2>
+    <p class="text-gray-300 text-center mb-8">See when your project will start</p>
+    
+    <div class="card rounded-xl p-8">
+        <div id="waitlistEmpty" class="text-center py-12">
+            <svg class="mx-auto mb-4 text-purple-400" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <p class="text-gray-300 text-lg">No projects in queue yet. Be the first!</p>
+        </div>
+        
+        <div id="waitlistItems" class="space-y-4 hidden">
+            <!-- Waitlist items will be added here dynamically -->
+        </div>
+    </div>
+</section>
+
+<!-- Schedule & Availability Section -->
+<section id="schedule" class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold text-white text-center mb-8">My Schedule & Availability</h2>
+    <p class="text-gray-300 text-center mb-8 max-w-3xl mx-auto">
+        To provide high-quality, hand-coded websites, I carefully balance school, personal activities, and client work. Here's an overview of the time I dedicate to your projects:
+    </p>
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="card schedule-card rounded-xl p-6 transition-transform">
+            <h3 class="text-2xl font-bold text-white mb-2">Weekdays</h3>
+            <p class="text-gray-300">Approx. 4 hours/day after school (Mon–Fri)</p>
+        </div>
+        <div class="card schedule-card rounded-xl p-6 transition-transform">
+            <h3 class="text-2xl font-bold text-white mb-2">Saturday</h3>
+            <p class="text-gray-300">Approx. 6–10 hours/day depending on circumstances</p>
+        </div>
+        <div class="card schedule-card rounded-xl p-6 transition-transform">
+            <h3 class="text-2xl font-bold text-white mb-2">Sunday</h3>
+            <p class="text-gray-300">Usually a stay-at-home day with ~6 hours available</p>
+        </div>
+    </div>
+    <p class="text-gray-400 text-center mt-8 max-w-3xl mx-auto">
+        Approx. 30–35 hours per week dedicated to client projects, ensuring focused, high-quality websites.
+    </p>
+</section>
+
+<!-- Footer -->
+<footer class="header-blur mt-16">
+    <div class="max-w-6xl mx-auto px-6 py-8">
+        <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <div class="flex items-center gap-2 justify-center md:justify-start mb-3">
+                    <svg class="text-purple-400" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    <span class="text-xl font-bold text-white">WebCraft Studio</span>
+                </div>
+                <p class="text-gray-400 text-sm">Building beautiful websites for small businesses</p>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-semibold mb-3">Contact</h4>
+                <div class="space-y-2 text-gray-400 text-sm">
+                    <div class="flex items-center gap-2 justify-center md:justify-start">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>hello@webcraftstudio.com</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-semibold mb-3">Services</h4>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li>Web Development</li>
+                    <li>Website Design</li>
+                    <li>SEO Optimization</li>
+                    <li>Maintenance & Support</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-purple-500/30 mt-8 pt-8 text-center text-gray-400 text-sm">
+            © 2024 WebCraft Studio. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Duration mapping (in days)
+    const serviceDurations = {
+        'basic': 10,
+        'professional': 17,
+        'premium': 30
+    };
+
+    // Helper function to format dates
+    function formatDate(date) {
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        return `${months[date.getMonth()]} ${date.getDate()}`;
+    }
+
+    // Helper function to add days to a date
+    function addDays(date, days) {
+        const result = new Date(date);
+        result.setDate(result.getDate() + days);
+        return result;
+    }
+
+    // Add project to waitlist
+    function addToWaitlist(name, businessName, service) {
+        const duration = serviceDurations[service];
+        
+        // Calculate start date (after all existing projects)
+        let startDate = new Date();
+        
+        if (waitlist.length > 0) {
+            const lastProject = waitlist[waitlist.length - 1];
+            startDate = new Date(lastProject.endDate);
+        }
+        
+        const endDate = addDays(startDate, duration);
+        
+        const project = {
+            name: name,
+            businessName: businessName || name,
+            service: service,
+            startDate: startDate.toISOString(),
+            endDate: endDate.toISOString(),
+            addedAt: new Date().toISOString()
+        };
+        
+        waitlist.push(project);
+        localStorage.setItem('waitlist', JSON.stringify(waitlist));
+        renderWaitlist();
+    }
+
+    // Load waitlist from localStorage
+    let waitlist = JSON.parse(localStorage.getItem('waitlist') || '[]');
+
+    function renderWaitlist() {
+        const emptyDiv = document.getElementById('waitlistEmpty');
+        const itemsDiv = document.getElementById('waitlistItems');
+
+        if (waitlist.length === 0) {
+            emptyDiv.classList.remove('hidden');
+            itemsDiv.classList.add('hidden');
+            return;
+        }
+
+        emptyDiv.classList.add('hidden');
+        itemsDiv.classList.remove('hidden');
+        itemsDiv.innerHTML = '';
+
+        waitlist.forEach((project, index) => {
+            const isFirst = index === 0;
+            const item = document.createElement('div');
+            item.className = 'waitlist-item bg-white bg-opacity-5 rounded-lg p-6 border border-purple-500/20';
+            item.innerHTML = `
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h3 class="text-xl font-bold text-white">${project.businessName || project.name}</h3>
+                            ${isFirst ? '<span class="pulse-dot inline-block w-2 h-2 bg-green-400 rounded-full"></span>' : ''}
+                            ${isFirst ? '<span class="text-green-400 text-sm font-semibold">In Progress</span>' : ''}
+                        </div>
+                        <p class="text-gray-400 text-sm">${project.name}</p>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-sm ${isFirst ? 'bg-green-400/20 text-green-400' : 'bg-purple-500/20 text-purple-300'}">
+                        ${formatDate(new Date(project.startDate))} – ${formatDate(new Date(project.endDate))}
+                    </span>
+                </div>
+            `;
+            itemsDiv.appendChild(item);
+        });
+
+        // Scroll to last added project
+        if (itemsDiv.lastChild) {
+            itemsDiv.lastChild.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+
+    // Form submission handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const businessName = document.getElementById('businessName').value;
+        const service = document.getElementById('service').value;
+
+        // Add to waitlist
+        addToWaitlist(name, businessName, service);
+
+        // Show success message
+        const successMessage = document.getElementById('successMessage');
+        successMessage.classList.add('show');
+        setTimeout(() => successMessage.classList.remove('show'), 5000);
+
+        // Submit form to Formspree
+        fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this),
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        // Reset form
+        this.reset();
+    });
+
+    // Initial render
+    renderWaitlist();
+</script>
+</body>
+</html>
