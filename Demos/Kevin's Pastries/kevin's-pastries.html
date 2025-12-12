@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kevin's Pastries</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='24' font-size='24'%3E🥐%3C/text%3E%3C/svg%3E">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: Khaki;
+    }
+
+    header {
+      background-color: DarkGoldenRod;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 34px;
+      color: #2C2C00;
+      text-align: center;
+      margin: 0 0 15px 0;
+    }
+
+    nav a {
+      color: #2C2C00;
+      text-decoration: none;
+      padding: 0 10px;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      color: #1A1A00;
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #2C2C00;
+    }
+
+    p {
+      font-size: 22px;
+      color: #3D3D00;
+    }
+
+    .centered {
+      text-align: center;
+    }
+
+    .product-section {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .product-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .testimonial {
+      font-style: italic;
+      color: #555;
+      margin-top: 15px;
+    }
+
+    .testimonial-author {
+      text-align: center;
+      color: #666;
+    }
+
+    footer {
+      background-color: DarkGoldenRod;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    @media (max-width: 900px) {
+      nav a {
+        display: inline-block;
+        margin-bottom: 8px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .product-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .product-section img {
+        max-width: 80%;
+      }
+    }
+
+    @media (max-width: 450px) {
+      h1 {
+        font-size: 26px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      nav a {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Kevin's Pastries</h1>
+    <nav>
+      <a href="kevin's-pastries.html">Home</a> |
+      <a href="menu.html">Menu</a> |
+      <a href="about.html">About</a> |
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="centered">With delicious croissants and scrumptious cakes, Kevin's Pastries
+      has tastes you'll never forget!</p>
+    <p class="centered"><small>The images below are our and customers' favourites.</small></p>
+
+    <div class="product-section">
+      <div>
+        <p>One of our delightful baguettes:</p>
+        <img src="baguette.jpeg" alt="baguette">
+      </div>
+      <div>
+        <h2>Fresh Daily Baguettes</h2>
+        <p>Crispy on the outside, soft on the inside. Made with traditional French techniques every morning.</p>
+        <p><strong>Price: £2.50</strong></p>
+        <p class="testimonial">
+          <small>"Kevin's baguettes make my morning lovely."</small>
+        </p>
+        <p class="testimonial-author">
+          <small>- Luca .S</small>
+        </p>
+      </div>
+    </div>
+
+    <div class="product-section">
+      <div>
+        <p>Our best croissants:</p>
+        <img src="croissant.jpeg" alt="croissant">
+      </div>
+      <div>
+        <h2>Buttery Croissants</h2>
+        <p>Flaky, buttery layers that melt in your mouth. Perfect with your morning coffee!</p>
+        <p><strong>Price: £3.00</strong></p>
+        <p class="testimonial">
+          <small>"The best croissants in Britain!"</small>
+        </p>
+        <p class="testimonial-author">
+          <small>- Sarah .M</small>
+        </p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 Kevin's Pastries | 56 Baker Street, Brighton | Open Mon-Sat 7am-6pm</p>
+  </footer>
+</body>
+</html>
